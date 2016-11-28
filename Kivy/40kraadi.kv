@@ -1,0 +1,47 @@
+#: kivy 1.8.0
+#: import FadeTransition kivy.uix.screenmanager.FadeTransition
+# File name: 40kraadi.kv
+
+#: import random random
+
+ScreenManagement:
+    transition: FadeTransition()
+    EsimeneLehekulg:
+    MangijateValik:
+    Mang:
+
+
+<EsimeneLehekulg>:
+    name: 'esimenelk'
+    BoxLayout:
+        orientation: 'vertical'
+        FloatLayout:
+            Button:
+                text: 'Mängi'
+                pos_hint: {'x':0.4,'y': 0.3}
+                size_hint: 0.2,0.1
+        FloatLayout:
+            Button:
+                pos_hint: {'x':0,'y':0}
+                text: 'Abi'
+                size_hint: 0.2,0.1
+            Button:
+                text: 'seaded'
+                pos_hint: {'right':1,'y':0}
+                size_hint: 0.2,0.1
+
+
+
+
+<MangijateValik>:
+    name: 'mangijatevalik'
+
+<Mang>:
+    name: 'mang'
+
+
+
+
+		
+	
+	
