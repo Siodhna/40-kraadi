@@ -1,6 +1,7 @@
 #: kivy 1.8.0
 #: import FadeTransition kivy.uix.screenmanager.FadeTransition
 # File name: 40kraadi.kv
+#:import get_color_from_hex kivy.utils.get_color_from_hex
 
 #: import random random
 
@@ -13,15 +14,33 @@ ScreenManagement:
 
 <EsimeneLehekulg>:
     name: 'esimenelk'
+
     BoxLayout:
         orientation: 'vertical'
+
+
+        FloatLayout:
+            canvas.before:
+                BorderImage:
+                    source: 'pealkirii.png'
+                    pos: self.pos
+                    size: self.size
+
         FloatLayout:
             Button:
-                text: 'Mängi'
-                pos_hint: {'x':0.4,'y': 0.3}
-                size_hint: 0.2,0.1
+                pos_hint: {'x':0.4,'y': 0.1}
+                size_hint: 0.23,0.002
+                size_hint_y: None
+                background_normal: 'nupp.png'
+                background_down:'nupp.png'
+                on_release: app.root.current = "mangijatevalik"
+                allow_stretch: True
+                keep_ratio: False
+
         FloatLayout:
             Button:
+
+
                 pos_hint: {'x':0,'y':0}
                 text: 'Abi'
                 size_hint: 0.2,0.1
@@ -35,6 +54,7 @@ ScreenManagement:
 
 <MangijateValik>:
     name: 'mangijatevalik'
+
 
 <Mang>:
     name: 'mang'
