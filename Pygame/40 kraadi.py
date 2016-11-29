@@ -155,17 +155,6 @@ mängija4 = inimene("Alo", 0, 4, kol)
 mängija5 = inimene("Kalev", 0, 5, ora)
 mängija6 = inimene("Ilmar", 0, 6, roo)
 
-def mäng():
-    pygame.draw.rect(Screen, valge, (600, 0, 600, 600))
-    tase = "tõmba"
-    draw_buttons(tõmbakaartnupp)
-    if result == "tõmbakaart":
-        pygame.draw.rect(Screen, hall, (700, 100, 400, 400))
-        draw_buttons(kaardinupud)
-        tekst("Mängi kassi", fontbutton, must, 750, 150)
-        if result == "tehtud" or result == "jõin":
-            tase = "tõmba"
-
 tase = "startmenüü"
 
 gameExit = False
