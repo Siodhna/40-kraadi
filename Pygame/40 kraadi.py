@@ -216,6 +216,40 @@ while not gameExit:
                 elif result == "jõin":
                     tase = "arvuta_punktid"
 
+    if näita_punkte == True:
+        if mängijatearv == 2:
+            tekst((mängija1.nimi + ":"), font4, must, 100, 135)
+            tekst((mängija2.nimi + ":"), font4, must, 100, 435)
+            pygame.draw.circle(Screen, mängija1.värv, (300, 150), 50, 0)
+            pygame.draw.circle(Screen, mängija2.värv, (300, 450), 50, 0)
+            tekst(str(mängija1.punktid), font4, must, 285, 135)
+            tekst(str(mängija2.punktid), font4, must, 285, 435)
+
+        elif mängijatearv == 3:
+            tekst((mängija1.nimi + ":"), font4, must, 100, 85)
+            tekst((mängija2.nimi + ":"), font4, must, 100, 285)
+            tekst((mängija3.nimi + ":"), font4, must, 100, 485)
+            pygame.draw.circle(Screen, mängija1.värv, (300, 100), 50, 0)
+            pygame.draw.circle(Screen, mängija2.värv, (300, 300), 50, 0)
+            pygame.draw.circle(Screen, mängija3.värv, (300, 500), 50, 0)
+            tekst(str(mängija1.punktid), font4, must, 285, 85)
+            tekst(str(mängija2.punktid), font4, must, 285, 285)
+            tekst(str(mängija3.punktid), font4, must, 285, 485)
+
+        elif mängijatearv == 4:
+            tekst((mängija1.nimi + ":"), font4, must, 80, 135)
+            tekst((mängija2.nimi + ":"), font4, must, 80, 435)
+            tekst((mängija3.nimi + ":"), font4, must, 330, 135)
+            tekst((mängija4.nimi + ":"), font4, must, 350, 435)
+            pygame.draw.circle(Screen, mängija1.värv, (250, 150), 50, 0)
+            pygame.draw.circle(Screen, mängija2.värv, (250, 450), 50, 0)
+            pygame.draw.circle(Screen, mängija3.värv, (500, 150), 50, 0)
+            pygame.draw.circle(Screen, mängija4.värv, (500, 450), 50, 0)
+            tekst(str(mängija1.punktid), font4, must, 235, 135)
+            tekst(str(mängija2.punktid), font4, must, 235, 435)
+            tekst(str(mängija3.punktid), font4, must, 485, 135)
+            tekst(str(mängija4.punktid), font4, must, 485, 435)
+
     pygame.display.update()
 
 pygame.quit()
