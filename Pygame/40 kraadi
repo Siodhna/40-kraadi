@@ -60,6 +60,7 @@ näita_punkte = False
 Screen = pygame.display.set_mode((laius, kõrgus))  # teeb akna
 pygame.display.set_caption("40 kraadi")  # aknale pealkiri
 
+#nuppude loomine
 class nupp():
     def __init__(self, rect, värv1, värv2, buttontekst, tulemus):
         self.rect = rect
@@ -136,6 +137,7 @@ def tekst(sõnum, font, värv, x, y):
     teksti_pilt = font.render(sõnum, False, värv)
     Screen.blit(teksti_pilt, (x, y))
 
+#mängijate loomine
 class inimene():
     def __init__(self, nimi, punktid, järjekord, värv):
         self.nimi = nimi
