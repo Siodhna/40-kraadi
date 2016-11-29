@@ -3,15 +3,20 @@ from time import sleep
 from random import randint
 
 must = (0, 0, 0)
+helemust = (56, 56, 56)
 valge = (255, 255, 255)
 hall = (105, 105, 105)
-helehall = (156, 156, 156)
-punane = (200, 70, 70)
-helepunane = (235, 128, 128)
-tumepunane = (155, 0, 0)
-lilla = (102, 0, 102)
-helelilla = (141, 59, 141)
+helehall = (199, 199, 199)
+lillakas = (117, 117, 255)
+erkpunane = (255, 92, 92)
+münt = (41, 255, 169)
 
+sin = (105, 210, 245)
+roh = (133, 245, 105)
+pun = (247, 57, 57)
+kol = (255, 241, 43)
+ora = (255, 149, 43)
+roo = (245, 95, 250)
 
 pygame.init()
 
@@ -19,7 +24,14 @@ font = pygame.font.SysFont("Broadway", 110)
 font2 = pygame.font.SysFont("DejaVu Sans", 40)
 font4 = pygame.font.SysFont("DejaVu Sans", 30)
 fontbutton = pygame.font.SysFont("DejaVu Sans", 20)
+fonttegevus = pygame.font.SysFont("DejaVu Sans", 15)
 
+# NUPPUDELE:
+# OCR A Extended
+# DejaVu Sans
+
+# PEALKIRJALE:
+# Broadway
 
 def fondid(text, color, size):
     if size == "font":
@@ -38,11 +50,17 @@ nupu_laius = 100
 nupu_kõrgus = 40
 numbrinupu_laius = 50
 numbrinupu_kõrgus = 40
+nupuvärv_a = must
+nupuvärv_b = helemust
+nuputekstivärv = valge
 punktid = 0
+kord = 1
+näita_punkte = False
 
 Screen = pygame.display.set_mode((laius, kõrgus))  # teeb akna
 pygame.display.set_caption("40 kraadi")  # aknale pealkiri
 
+#nuppude loomine
 class nupp():
     def __init__(self, rect, värv1, värv2, buttontekst, tulemus):
         self.rect = rect
@@ -119,6 +137,23 @@ def tekst(sõnum, font, värv, x, y):
     teksti_pilt = font.render(sõnum, False, värv)
     Screen.blit(teksti_pilt, (x, y))
 
+#mängijate loomine
+class inimene():
+    def __init__(self, nimi, punktid, järjekord, värv):
+        self.nimi = nimi
+        self.punktid = punktid
+        self.järjekord = järjekord
+        self.värv = värv
+
+    def lisa_punkte(self, arv):
+        self.punktid += arv
+
+mängija1 = inimene("Valdek", 0, 1, sin)
+mängija2 = inimene("Tambet", 0, 2, roh)
+mängija3 = inimene("Neeme", 0, 3, pun)
+mängija4 = inimene("Alo", 0, 4, kol)
+mängija5 = inimene("Kalev", 0, 5, ora)
+mängija6 = inimene("Ilmar", 0, 6, roo)
 
 def mäng():
     pygame.draw.rect(Screen, valge, (600, 0, 600, 600))
