@@ -60,7 +60,7 @@ näita_punkte = False
 Screen = pygame.display.set_mode((laius, kõrgus))  # teeb akna
 pygame.display.set_caption("40 kraadi")  # aknale pealkiri
 
-#nuppude loomine
+# nuppude loomine
 class nupp():
     def __init__(self, rect, värv1, värv2, buttontekst, tulemus):
         self.rect = rect
@@ -137,7 +137,7 @@ def tekst(sõnum, font, värv, x, y):
     teksti_pilt = font.render(sõnum, False, värv)
     Screen.blit(teksti_pilt, (x, y))
 
-#mängijate loomine
+# mängijate loomine
 class inimene():
     def __init__(self, nimi, punktid, järjekord, värv):
         self.nimi = nimi
@@ -191,6 +191,41 @@ while not gameExit:
                 result = handle_buttons(abi_nupud, event)
                 if result == "Tagasi":
                     tase = "startmenüü"
+
+            elif tase == "mängijate_arv":
+                result = handle_buttons(mängijate_arv_nupud, event)
+                if result == "2_mängijat":
+                    mängijatearv = 2
+                    tase = "tõmba_kaart"
+                    näita_punkte = True
+                elif result == "3_mängijat":
+                    mängijatearv = 3
+                    tase = "tõmba_kaart"
+                    näita_punkte = True
+                elif result == "4_mängijat":
+                    mängijatearv = 4
+                    tase = "tõmba_kaart"
+                    näita_punkte = True
+                elif result == "5_mängijat":
+                    mängijatearv = 5
+                    tase = "tõmba_kaart"
+                    näita_punkte = True
+                elif result == "6_mängijat":
+                    mängijatearv = 6
+                    tase = "tõmba_kaart"
+                    näita_punkte = True
+
+            elif tase == "tõmba_kaart":
+                result = handle_buttons(tõmbakaartnupp, event)
+                if result == "tõmbakaart":
+                    tase = "kaart"
+
+            elif tase == "kaart":
+                result = handle_buttons(kaardinupud, event)
+                if result == "tehtud":
+                    tase = "arvuta_punktid"
+                elif result == "jõin":
+                    tase = "arvuta_punktid"
 
     pygame.display.update()
 
