@@ -287,6 +287,18 @@ while not gameExit:
             tekst(str(mängija5.punktid), font4, must, 485, 285)
             tekst(str(mängija6.punktid), font4, must, 485, 435)
 
+    if mängija1.punktid >= 10:
+        võitja = mängija1.nimi
+        tase = "mängläbi"
+
+    if mängija2.punktid >= 10:
+        võitja = mängija2.nimi
+        tase = "mängläbi"
+
+    if tase == "mängläbi":
+        Screen.fill(taustavärv)
+        tekst(("Mäng läbi! Võitis " + võitja + "."), font4, must, 400, 100)
+
     pygame.display.update()
 
 pygame.quit()
