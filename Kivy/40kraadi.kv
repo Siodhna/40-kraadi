@@ -10,6 +10,10 @@ ScreenManagement:
     EsimeneLehekulg:
     MangijateValik:
     Mang:
+    Blank:
+    Abi:
+    Seaded:
+
 
 
 <EsimeneLehekulg>:
@@ -35,29 +39,88 @@ ScreenManagement:
                 background_down:'nupp.png'
                 on_release: app.root.current = "mangijatevalik"
                 allow_stretch: True
-                keep_ratio: False
+                keep_ratio: True
+                border: (3, 3, 3, 3)
 
         FloatLayout:
             Button:
-
-
                 pos_hint: {'x':0,'y':0}
                 text: 'Abi'
                 size_hint: 0.2,0.1
+                on_release: app.root.current = 'abi'
             Button:
                 text: 'seaded'
                 pos_hint: {'right':1,'y':0}
                 size_hint: 0.2,0.1
-
-
-
+                on_release: app.root.current = 'seaded'
 
 <MangijateValik>:
     name: 'mangijatevalik'
 
+    BoxLayout:
+        padding: 40,40
+
+        BoxLayout:
+            padding: 40,40
+            orientation: 'vertical'
+            BoxLayout:
+                padding: 30,30
+                Button:
+                    text: 'Kaks mängijat'
+                    on_release: app.root.current = "mang"
+            BoxLayout:
+                padding: 30,30
+                Button:
+                    text: 'Kolm mängijat'
+                    on_release: app.root.current = "mang"
+            BoxLayout:
+                padding: 30,30
+                Button:
+                    text: 'Neli mängijat'
+                    on_release: app.root.current = "mang"
+        BoxLayout:
+            padding: 40,40
+            orientation: 'vertical'
+            BoxLayout:
+                padding: 30,30
+                Button:
+                    text: 'Viis mängijat'
+                    on_release: app.root.current = "mang"
+            BoxLayout:
+                padding: 30,30
+                Button:
+                    text: 'Kuus mängijat'
+                    on_release: app.root.current = "mang"
+            BoxLayout:
+                padding: 30,30
+                Button:
+                    text: 'Seitse mängijat'
+                    on_release: app.root.current = "mang"
+
+<Blank>:
+    name: 'blank'
+
 
 <Mang>:
     name: 'mang'
+    BoxLayout:
+        Label:
+            text: root.uus_tegevus
+        Button:
+
+            on_release: root.Muuda_Tegevust()
+<Abi>:
+    name: 'abi'
+    Label:
+        text: 'Varu piisavas koguses alkoholi ja naudi mängu!'
+        background_color: 0,1,0,1
+<Seaded>:
+    name: 'seaded'
+
+
+
+
+
 
 
 
