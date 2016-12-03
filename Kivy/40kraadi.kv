@@ -2,7 +2,6 @@
 #: import FadeTransition kivy.uix.screenmanager.FadeTransition
 # File name: 40kraadi.kv
 #:import get_color_from_hex kivy.utils.get_color_from_hex
-
 #: import random random
 
 ScreenManagement:
@@ -12,17 +11,12 @@ ScreenManagement:
     Mang:
     Blank:
     Abi:
-    Seaded:
-
 
 
 <EsimeneLehekulg>:
     name: 'esimenelk'
-
     BoxLayout:
         orientation: 'vertical'
-
-
         FloatLayout:
             canvas.before:
                 BorderImage:
@@ -49,10 +43,10 @@ ScreenManagement:
                 size_hint: 0.2,0.1
                 on_release: app.root.current = 'abi'
             Button:
-                text: 'seaded'
+                text: 'Välja'
                 pos_hint: {'right':1,'y':0}
                 size_hint: 0.2,0.1
-                on_release: app.root.current = 'seaded'
+                on_release: app.stop()
 
 <MangijateValik>:
     name: 'mangijatevalik'
@@ -97,25 +91,57 @@ ScreenManagement:
                     text: 'Seitse mängijat'
                     on_release: app.root.current = "mang"
 
-<Blank>:
-    name: 'blank'
-
-
 <Mang>:
     name: 'mang'
     BoxLayout:
+        orientation: 'vertical'
         Label:
             text: root.uus_tegevus
         Button:
 
             on_release: root.Muuda_Tegevust()
+        Button:
+            on_release: app.root.current = 'blank'
+<Blank>:
+    name: 'blank'
+    BoxLayout:
+        orientation: 'vertical'
+        BoxLayout:
+            Label:
+                text: root.onnitlus
+        FloatLayout:
+
+            Button:
+                pos_hint: {'x':0.35,'y': 0.1}
+                size_hint:  0.3,0.2
+                on_release: app.root.current = 'mang'
+                text: 'Edasi'
+        FloatLayout:
+            Button:
+                pos_hint: {'x':0.35,'y':0.1}
+                size_hint: 0.3,0.2
+                on_release: root.muuda_onnitlust()
+
+
+
+
+
 <Abi>:
     name: 'abi'
-    Label:
-        text: 'Varu piisavas koguses alkoholi ja naudi mängu!'
-        background_color: 0,1,0,1
-<Seaded>:
-    name: 'seaded'
+    BoxLayout:
+        orientation: 'vertical'
+        FloatLayout:
+            Label:
+                text: 'Varu piisavas koguses alkoholi ja naudi mängu!'
+                background_color: 0,1,0,1
+        FloatLayout:
+            Button:
+                text: 'tagasi'
+                pos_hint: {'x':0.35,'y':0.1}
+                size_hint: 0.3,0.2
+                on_release: app.root.current = 'esimenelk'
+
+
 
 
 

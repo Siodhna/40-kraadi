@@ -1,7 +1,6 @@
 # File name: 40kraadi.py
 import kivy
 kivy.require("1.8.0")
-
 from kivy.app import App
 from kivy.properties import StringProperty
 from kivy.uix.screenmanager import ScreenManager, Screen, WipeTransition
@@ -32,6 +31,8 @@ from kivy.properties import ObjectProperty
 from random import randint
 
 Window.clearcolor = get_color_from_hex('#51555b')
+
+
 class EsimeneLehekulg(Screen):
     pass
 
@@ -39,36 +40,52 @@ class EsimeneLehekulg(Screen):
 class MangijateValik(Screen):
     pass
 
+
 class Mang(Screen):
     uus_tegevus = StringProperty()
+
     def __init__(self,**kwargs):
         super(Mang,self).__init__(**kwargs)
         f = open('tegevused.txt', 'r')
         k = list(f)
         self.uus_tegevus = str(k[randint(0,len(k)-1)])
+
     def Muuda_Tegevust(self):
         f = open('tegevused.txt', 'r')
         k = list(f)
-
-
         self.uus_tegevus = str(k[randint(0,len(k)-1)])
+
+
 class Blank(Screen):
-    pass
+    nime_vahetus = StringProperty()
+    onnitlus = StringProperty()
+    def __init__(self,**kwargs):
+        super(Blank,self).__init__(**kwargs)
+        nimede_list = ['Adelbert','Tsuks','Salme','Maie','Toomas','Alo']
+
+        for nimi in nimede_list:
+            self.nime_vahetus = str(nimi)
+
+        fail = open('onnitlused.txt')
+        onnitluse_list = list(fail)
+        self.onnitlus=(str(onnitluse_list[randint(0, len(onnitluse_list) - 1)]))
+
+    def muuda_nime(self):
+        nimede_list = ['Adelbert','Tsuks','Salme','Maie','Toomas','Alo']
+        for nimi in nimede_list:
+            self.nime_vahetus = str(nimi)
+
+    def muuda_onnitlust(self):
+        fail = open('onnitlused.txt')
+        onnitluse_list = list(fail)
+        self.onnitlus=(str(onnitluse_list[randint(0,len(onnitluse_list)-1)]))
 
 
-class ManguKaart(Label):
-    pass
-
-class KraadiMang(Widget):
-    kaart = ObjectProperty(None)
-    player1 = ObjectProperty(None)
-    player2 = ObjectProperty(None)
-    player3 = ObjectProperty(None)
 
 class Abi(Screen):
     pass
-class Seaded(Screen):
-    pass
+
+
 class ScreenManagement(ScreenManager):
     pass
 
@@ -76,17 +93,8 @@ class ScreenManagement(ScreenManager):
 presentation = Builder.load_file("40kraadi.kv")
 
 class NelikummendKraadiApp(App):
-
-
     def build(self):
-
-
-
-
-
         return presentation
-
-
 
 
 if __name__ == "__main__":
