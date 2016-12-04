@@ -1,8 +1,11 @@
 # File name: 40kraadi.py
+from __future__ import print_function, division
 import kivy
 kivy.require("1.8.0")
+
 from kivy.app import App
 from kivy.properties import StringProperty
+from kivy.uix.popup import Popup
 from kivy.uix.screenmanager import ScreenManager, Screen, WipeTransition
 from kivy.lang import Builder
 from kivy.uix.gridlayout import GridLayout
@@ -30,8 +33,10 @@ import random
 from kivy.properties import ObjectProperty
 from random import randint
 
-Window.clearcolor = get_color_from_hex('#51555b')
+Window.clearcolor = get_color_from_hex('#83dcf6')
 
+class UusKaart(Popup):
+    pass
 
 class EsimeneLehekulg(Screen):
     pass
@@ -49,37 +54,28 @@ class Mang(Screen):
         f = open('tegevused.txt', 'r')
         k = list(f)
         self.uus_tegevus = str(k[randint(0,len(k)-1)])
+        popup = Popup()
+        popup2 = Popup()
+
 
     def Muuda_Tegevust(self):
         f = open('tegevused.txt', 'r')
         k = list(f)
         self.uus_tegevus = str(k[randint(0,len(k)-1)])
-
-
-class Blank(Screen):
-    nime_vahetus = StringProperty()
-    onnitlus = StringProperty()
-    def __init__(self,**kwargs):
-        super(Blank,self).__init__(**kwargs)
-        nimede_list = ['Adelbert','Tsuks','Salme','Maie','Toomas','Alo']
-
-        for nimi in nimede_list:
-            self.nime_vahetus = str(nimi)
-
-        fail = open('onnitlused.txt')
-        onnitluse_list = list(fail)
-        self.onnitlus=(str(onnitluse_list[randint(0, len(onnitluse_list) - 1)]))
-
-    def muuda_nime(self):
-        nimede_list = ['Adelbert','Tsuks','Salme','Maie','Toomas','Alo']
-        for nimi in nimede_list:
-            self.nime_vahetus = str(nimi)
-
-    def muuda_onnitlust(self):
-        fail = open('onnitlused.txt')
-        onnitluse_list = list(fail)
-        self.onnitlus=(str(onnitluse_list[randint(0,len(onnitluse_list)-1)]))
-
+    def popupvalja(self):
+        popup = Popup(title = '',
+                      content = Label(text = 'Tubli, anna jarg edasi'),
+                      size = (600,600),
+                      size_hint = (None,None),
+                      auto_dismiss = True)
+        popup.open()
+    def popupvalja2(self):
+        popup2 = Popup(title='',
+                      content=Label(text='Mitte nii tubli, anna telefon edasi!'),
+                      size=(600, 600),
+                      size_hint=(None, None),
+                      auto_dismiss=True)
+        popup2.open()
 
 
 class Abi(Screen):

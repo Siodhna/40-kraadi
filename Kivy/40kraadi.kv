@@ -9,7 +9,6 @@ ScreenManagement:
     EsimeneLehekulg:
     MangijateValik:
     Mang:
-    Blank:
     Abi:
 
 
@@ -97,33 +96,20 @@ ScreenManagement:
         orientation: 'vertical'
         Label:
             text: root.uus_tegevus
-        Button:
 
+        Button:
+            pos_hint: {'x':0.35,'y':0.5}
+            size_hint: 0.3,0.2
+            text: 'JOON'
+            on_press: root.popupvalja2()
             on_release: root.Muuda_Tegevust()
-        Button:
-            on_release: app.root.current = 'blank'
-<Blank>:
-    name: 'blank'
-    BoxLayout:
-        orientation: 'vertical'
-        BoxLayout:
-            Label:
-                text: root.onnitlus
-        FloatLayout:
-
-            Button:
-                pos_hint: {'x':0.35,'y': 0.1}
-                size_hint:  0.3,0.2
-                on_release: app.root.current = 'mang'
-                text: 'Edasi'
         FloatLayout:
             Button:
-                pos_hint: {'x':0.35,'y':0.1}
+                pos_hint: {'x':0.35,'y':0.5}
                 size_hint: 0.3,0.2
-                on_release: root.muuda_onnitlust()
-
-
-
+                text: 'TEEN'
+                on_press: root.popupvalja()
+                on_release: root.Muuda_Tegevust()
 
 
 <Abi>:
@@ -140,6 +126,7 @@ ScreenManagement:
                 pos_hint: {'x':0.35,'y':0.1}
                 size_hint: 0.3,0.2
                 on_release: app.root.current = 'esimenelk'
+
 
 
 
