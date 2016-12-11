@@ -23,12 +23,10 @@ ScreenManagement:
             Label:
 
             Label:
-                size_hint: 0.4,0.4
-                canvas.before:
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size
-                        #source: 'ikoon.png'
+                markup: True
+                text:
+                    ('[font=Modern Pictograms][size=200]'
+                    '![/size][/font]\n            40 KRAADI')
 
             Label:
 
@@ -47,19 +45,27 @@ ScreenManagement:
                 #allow_stretch: True
                 #keep_ratio: True
                 border: (2,2,2,2)
-                text: 'Mängi'
+                markup: True
+                text:
+                    ('[font=Modern Pictograms][size=23]'
+                    '>[/size][/font]   Mängi')
 
             Button:
                 pos_hint: {'x': 0.25, 'y':0.3}
-
-                text: 'Abi'
+                markup: True
+                text:
+                    ('[font=Modern Pictograms][size=23]'
+                    '?[/size][/font]       Abi')
                 size_hint: 0.5,0.1
                 on_release: app.root.current = 'abi'
                 background_normal: 'nupp1.png'
                 background_down:'nupp2.png'
                 border: (2,2,2,2)
             Button:
-                text: 'Välja'
+                markup:True
+                text:
+                    ('[font=Modern Pictograms][size=23]'
+                    'X[/size][/font]     Välju')
                 pos_hint: {'x': 0.25, 'y':0.1}
                 size_hint: 0.5,0.1
                 on_release: app.stop()
