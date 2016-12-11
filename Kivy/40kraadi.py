@@ -8,16 +8,12 @@ from kivy.properties import StringProperty
 from kivy.uix.popup import Popup
 from kivy.uix.screenmanager import ScreenManager, Screen, WipeTransition
 from kivy.lang import Builder
-from kivy.uix.gridlayout import GridLayout
 from kivy.properties import NumericProperty
 from kivy.uix.widget import Widget
-from kivy.graphics import Line
 from kivy.uix.image import Image
 from kivy.core.window import Window
 from kivy.uix.label import Label
 from kivy.utils import get_color_from_hex
-from kivy.uix.anchorlayout import AnchorLayout
-from kivy.uix.relativelayout import RelativeLayout
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.behaviors import ButtonBehavior
@@ -29,53 +25,52 @@ from kivy.graphics.vertex_instructions import (Rectangle,
                                                Line)
 from kivy.graphics.context_instructions import Color
 from kivy.graphics import Canvas
-import random
 from kivy.properties import ObjectProperty
 from random import randint
 
-Window.clearcolor = get_color_from_hex('#83dcf6')
-
-class UusKaart(Popup):
-    pass
+Window.clearcolor = get_color_from_hex('#000000')
 
 class EsimeneLehekulg(Screen):
     pass
 
-
-class MangijateValik(Screen):
-    pass
-
-
 class Mang(Screen):
     uus_tegevus = StringProperty()
-
+    popup1 = Popup()
+    popup2 = Popup()
     def __init__(self,**kwargs):
         super(Mang,self).__init__(**kwargs)
         f = open('tegevused.txt', 'r')
         k = list(f)
         self.uus_tegevus = str(k[randint(0,len(k)-1)])
-        popup = Popup()
-        popup2 = Popup()
+
+
 
 
     def Muuda_Tegevust(self):
         f = open('tegevused.txt', 'r')
         k = list(f)
         self.uus_tegevus = str(k[randint(0,len(k)-1)])
-    def popupvalja(self):
-        popup = Popup(title = '',
-                      content = Label(text = 'Tubli, anna jarg edasi'),
-                      size = (600,600),
-                      size_hint = (None,None),
-                      auto_dismiss = True)
-        popup.open()
+
+    def popupvalja1(self):
+        popup1 = Popup1()
+        popup1.open()
+
     def popupvalja2(self):
-        popup2 = Popup(title='',
-                      content=Label(text='Mitte nii tubli, anna telefon edasi!'),
-                      size=(600, 600),
-                      size_hint=(None, None),
-                      auto_dismiss=True)
+        popup2 = Popup2()
         popup2.open()
+
+
+
+
+class Popup1(Popup):
+    pass
+
+
+class Popup2(Popup):
+    pass
+
+
+
 
 
 class Abi(Screen):

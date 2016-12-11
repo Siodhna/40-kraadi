@@ -7,7 +7,6 @@
 ScreenManagement:
     transition: FadeTransition()
     EsimeneLehekulg:
-    MangijateValik:
     Mang:
     Abi:
 
@@ -30,7 +29,7 @@ ScreenManagement:
                 size_hint_y: None
                 background_normal: 'nupp.png'
                 background_down:'nupp.png'
-                on_release: app.root.current = "mangijatevalik"
+                on_release: app.root.current = "mang"
                 allow_stretch: True
                 keep_ratio: True
                 border: (3, 3, 3, 3)
@@ -47,48 +46,6 @@ ScreenManagement:
                 size_hint: 0.2,0.1
                 on_release: app.stop()
 
-<MangijateValik>:
-    name: 'mangijatevalik'
-
-    BoxLayout:
-        padding: 40,40
-
-        BoxLayout:
-            padding: 40,40
-            orientation: 'vertical'
-            BoxLayout:
-                padding: 30,30
-                Button:
-                    text: 'Kaks mängijat'
-                    on_release: app.root.current = "mang"
-            BoxLayout:
-                padding: 30,30
-                Button:
-                    text: 'Kolm mängijat'
-                    on_release: app.root.current = "mang"
-            BoxLayout:
-                padding: 30,30
-                Button:
-                    text: 'Neli mängijat'
-                    on_release: app.root.current = "mang"
-        BoxLayout:
-            padding: 40,40
-            orientation: 'vertical'
-            BoxLayout:
-                padding: 30,30
-                Button:
-                    text: 'Viis mängijat'
-                    on_release: app.root.current = "mang"
-            BoxLayout:
-                padding: 30,30
-                Button:
-                    text: 'Kuus mängijat'
-                    on_release: app.root.current = "mang"
-            BoxLayout:
-                padding: 30,30
-                Button:
-                    text: 'Seitse mängijat'
-                    on_release: app.root.current = "mang"
 
 <Mang>:
     name: 'mang'
@@ -96,6 +53,14 @@ ScreenManagement:
         orientation: 'vertical'
         Label:
             text: root.uus_tegevus
+            text_color: 0,0,0,0
+            font_size: 24
+            font_name: 'Arial'
+            bold: True
+            italic: True
+            shorten: True
+            shorten_from: 'right'
+            split_str: ''
 
         Button:
             pos_hint: {'x':0.35,'y':0.5}
@@ -108,7 +73,7 @@ ScreenManagement:
                 pos_hint: {'x':0.35,'y':0.5}
                 size_hint: 0.3,0.2
                 text: 'TEEN'
-                on_press: root.popupvalja()
+                on_press: root.popupvalja1()
                 on_release: root.Muuda_Tegevust()
 
 
@@ -128,7 +93,32 @@ ScreenManagement:
                 on_release: app.root.current = 'esimenelk'
 
 
+<Popup1>:
+    name: 'pop1'
+    title: 'Õnnitlus'
+    size_hint: .8,0.8
+    auto_dismiss: False
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: 'Väga hea'
+        Button:
+            text: 'Edasi'
+            on_press: root.dismiss()
+<Popup2>:
+    name: 'pop2'
+    title: 'Kaebus'
+    size_hint: 0.8,.8
+    auto_dismiss: False
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: 'Argpüks'
+        BoxLayout:
 
+            Button:
+                text: 'Edasi'
+                on_press: root.dismiss()
 
 
 
