@@ -1,0 +1,184 @@
+#: kivy 1.8.0
+#: import FadeTransition kivy.uix.screenmanager.FadeTransition
+# File name: main.kv
+#:import C kivy.utils.get_color_from_hex
+#: import random random
+
+ScreenManagement:
+    transition: FadeTransition()
+    id: scr
+    name: 'scr'
+    EsimeneLehekulg:
+    Mang:
+    Abi:
+
+
+<EsimeneLehekulg>:
+    name: 'esimenelk'
+    BoxLayout:
+
+        orientation: 'vertical'
+        BoxLayout:
+            orientation: 'horizontal'
+            Label:
+
+            Label:
+                size_hint: 0.4,0.4
+                canvas.before:
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                        #source: 'ikoon.png'
+
+            Label:
+
+
+        BoxLayout:
+            padding: (20,20,20,20)
+            orientation: 'vertical'
+
+            Button:
+                pos_hint: {'x': 0.25, 'y':0.5}
+
+                size_hint: 0.5,0.1
+                background_normal: 'nupp1.png'
+                background_down:'nupp2.png'
+                on_release: app.root.current = "mang"
+                #allow_stretch: True
+                #keep_ratio: True
+                border: (2,2,2,2)
+                text: 'Mängi'
+
+            Button:
+                pos_hint: {'x': 0.25, 'y':0.3}
+
+                text: 'Abi'
+                size_hint: 0.5,0.1
+                on_release: app.root.current = 'abi'
+                background_normal: 'nupp1.png'
+                background_down:'nupp2.png'
+                border: (2,2,2,2)
+            Button:
+                text: 'Välja'
+                pos_hint: {'x': 0.25, 'y':0.1}
+                size_hint: 0.5,0.1
+                on_release: app.stop()
+                background_normal: 'nupp1.png'
+                background_down:'nupp2.png'
+                border: (2,2,2,2)
+            Label:
+                size_hint_y: None
+                size_hint: 0.2,0.3
+                background_color: C('#2ECC71')
+
+<Mang>:
+    name: 'mang'
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: root.uus_tegevus
+            text_color: 0,0,0,0
+            text_size: self.size
+            font_size: 24
+            halign:'center'
+            outline_color: (0,0,0)
+            valign: 'middle'
+            font_name: 'Arial'
+            outline_width: 45
+            shorten: True
+            shorten_from: 'right'
+            split_str: ','
+            markup: True
+
+        Button:
+            pos_hint: {'x':0.35,'y':0.5}
+            size_hint: 0.3,0.2
+            text: 'JOON'
+            on_release: root.popupvalja2()
+            on_press: root.Muuda_Tegevust()
+            background_normal: 'nupp1.png'
+            background_down:'nupp2.png'
+            border: (2,2,2,2)
+        FloatLayout:
+            Button:
+                pos_hint: {'x':0.35,'y':0.7}
+                size_hint: 0.3,0.2
+                text: 'TEEN'
+                on_release: root.popupvalja1()
+                background_normal: 'nupp1.png'
+                background_down:'nupp2.png'
+                border: (2,2,2,2)
+                on_press: root.Muuda_Tegevust()
+
+
+<Abi>:
+    name: 'abi'
+    BoxLayout:
+        orientation: 'vertical'
+        FloatLayout:
+            Label:
+                text: '[b] Varu piisavas koguses alkoholi ja naudi mängu! [/b]'
+                font_name: 'Roboto'
+                background_color: 0,1,0,1
+                markup: True
+        FloatLayout:
+            Button:
+                text: 'tagasi'
+                pos_hint: {'x':0.35,'y':0.1}
+                size_hint: 0.3,0.2
+                on_release: app.root.current = 'esimenelk'
+                background_normal:'nupp1.png'
+                background_down:'nupp2.png'
+                border: (2,2,2,2)
+
+
+
+
+<Popup1>:
+    name: 'pop1'
+    title: 'Õnnitlus'
+    size_hint: .8,0.8
+    auto_dismiss: False
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: 'Väga hea'
+        Button:
+            text: 'Edasi'
+            background_normal: 'nupp1.png'
+            background_down:'nupp2.png'
+            on_press: root.dismiss()
+            size_hint: 0.3,0.2
+            border: (2,2,2,2)
+            pos_hint: {'x':0.35,'y':0.1}
+<Popup2>:
+    name: 'pop2'
+    title: 'Kaebus'
+    size_hint: 0.8,.8
+    auto_dismiss: False
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: 'Argpüks'
+        BoxLayout:
+
+            Button:
+                background_normal: 'nupp1.png'
+                background_down:'nupp2.png'
+                size_hint: 0.3,0.2
+                border: (2,2,2,2)
+                text: 'Edasi'
+                on_press: root.dismiss()
+                pos_hint: {'x':0.35,'y':0.1}
+
+
+
+
+
+
+
+
+
+		
+	
+	
