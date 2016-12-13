@@ -44,7 +44,7 @@ class Mang(Screen):
         super(Mang,self).__init__(**kwargs)
         f = open('tegevused.txt', 'r')
         k = list(f)
-        self.uus_tegevus = str(k[randint(0,len(k)-1)])
+        self.uus_tegevus = str('[b]'+k[randint(0,len(k)-1)]+'[/b]')
 
 
 
@@ -52,7 +52,7 @@ class Mang(Screen):
     def Muuda_Tegevust(self):
         f = open('tegevused.txt', 'r')
         k = list(f)
-        self.uus_tegevus = str(k[randint(0,len(k)-1)])
+        self.uus_tegevus = str('[b]'+k[randint(0,len(k)-1)]+'[/b]')
 
     def popupvalja1(self):
         popup1 = Popup1()
@@ -66,11 +66,24 @@ class Mang(Screen):
 
 
 class Popup1(Popup):
-    pass
+    onnitlus = StringProperty()
+    def __init__(self,**kwargs):
+        super(Popup1,self).__init__(**kwargs)
+        fail = open('onnitlused.txt')
+        onnitlused = list(fail)
+        self.onnitlus = str(onnitlused[randint(0, len(onnitlused) - 1)])
+
+
+
 
 
 class Popup2(Popup):
-    pass
+    kaebus = StringProperty()
+    def __init__(self,**kwargs):
+        super(Popup2,self).__init__(**kwargs)
+        fail = open ('kaebused.txt')
+        kaebused = list(fail)
+        self.kaebus = str(kaebused[randint(0,len(kaebused)-1)])
 
 
 
@@ -103,4 +116,6 @@ if __name__ == "__main__":
                        fn_bold='Roboto-Medium.ttf')
     LabelBase.register(name='Modern Pictograms',
                        fn_regular='modernpics.ttf')
+    LabelBase.register(name='capture',
+                       fn_regular='Capture_it.ttf')
     NelikummendKraadiApp().run()
