@@ -20,6 +20,12 @@ kol = (199, 217, 163)
 ora = (107, 140, 121)
 roo = (204, 172, 126)
 
+tegevustelist1 = []
+tegevustelist2 = []
+tegevused = open("tegevused.txt")
+for a in tegevused:
+    tegevustelist1 += [a.strip()]
+    
 pygame.init()
 
 font = pygame.font.SysFont("Broadway", 110)
