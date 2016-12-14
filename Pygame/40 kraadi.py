@@ -219,9 +219,17 @@ while not gameExit:
                     tase = "tõmba_kaart"
                     näita_punkte = True
 
+
             elif tase == "tõmba_kaart":
                 result = handle_buttons(tõmbakaartnupp, event)
                 if result == "tõmbakaart":
+                    b = tegevustelist1[randint(0, (len(tegevustelist1) - 1))]
+                    tegevustelist1.remove(b)
+                    tegevustelist2 += [b]
+                    if len(tegevustelist1) == 0:
+                        tegevustelist1 = tegevustelist2
+                        tegevustelist2 = []
+                    pesukaru = b
                     tase = "kaart"
 
             elif tase == "kaart":
