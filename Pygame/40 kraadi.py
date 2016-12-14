@@ -308,6 +308,22 @@ while not gameExit:
         võitja = mängija2.nimi
         tase = "mängläbi"
 
+    if mängija3.punktid >= 50:
+        võitja = mängija3.nimi
+        tase = "mängläbi"
+
+    if mängija4.punktid >= 50:
+        võitja = mängija4.nimi
+        tase = "mängläbi"
+
+    if mängija5.punktid >= 50:
+        võitja = mängija5.nimi
+        tase = "mängläbi"
+
+    if mängija6.punktid >= 50:
+        võitja = mängija6.nimi
+        tase = "mängläbi"
+
     if tase == "mängläbi":
         Screen.fill(taustavärv)
         tekst(("Mäng läbi! Võitis " + võitja + "."), font4, must, 400, 100)
