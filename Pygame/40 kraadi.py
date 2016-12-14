@@ -1,5 +1,4 @@
 import pygame
-from time import sleep
 from random import randint
 
 must = (0, 0, 0)
@@ -41,6 +40,7 @@ fonttegevus = pygame.font.SysFont("DejaVu Sans", 15)
 
 # PEALKIRJALE:
 # Broadway
+
 
 def fondid(text, color, size):
     if size == "font":
