@@ -124,22 +124,24 @@ def kas_hiir_on_nupul(nupp_x, nupp_y, nupu_laius, nupu_kõrgus, hiir_x, hiir_y):
         return True
 
 # NUPULISTID
-start_nupud = [nupp((540, 300, nupu_laius, nupu_kõrgus), hall, helehall, "Alusta", "Alusta"),
-               nupp((540, 350, nupu_laius, nupu_kõrgus), hall, helehall, "Abi", "Abi"),
-               nupp((540, 400, nupu_laius, nupu_kõrgus), hall, helehall, "Välju", "Välju")]
+start_nupud = [nupp((540, 300, nupu_laius, nupu_kõrgus), nupuvärv_a, nupuvärv_b, "Alusta", "Alusta"),
+               nupp((540, 350, nupu_laius, nupu_kõrgus), nupuvärv_a, nupuvärv_b, "Abi", "Abi"),
+               nupp((540, 400, nupu_laius, nupu_kõrgus), nupuvärv_a, nupuvärv_b, "Välju", "Välju")]
 
-abi_nupud = [nupp((540, 470, nupu_laius, nupu_kõrgus), hall, helehall, "Tagasi", "Tagasi")]
+abi_nupud = [nupp((540, 470, nupu_laius, nupu_kõrgus), nupuvärv_a, nupuvärv_b, "Tagasi", "Tagasi")]
 
-mängijate_arv_nupud = [nupp((575, 250, numbrinupu_laius, numbrinupu_kõrgus), hall, helehall, "2", "2_mängijat"),
-                       nupp((575, 300, numbrinupu_laius, numbrinupu_kõrgus), hall, helehall, "3", "3_mängijat"),
-                       nupp((575, 350, numbrinupu_laius, numbrinupu_kõrgus), hall, helehall, "4", "4_mängijat"),
-                       nupp((575, 400, numbrinupu_laius, numbrinupu_kõrgus), hall, helehall, "5", "5_mängijat"),
-                       nupp((575, 450, numbrinupu_laius, numbrinupu_kõrgus), hall, helehall, "6", "6_mängijat")]
+mängijate_arv_nupud = [nupp((575, 250, numbrinupu_laius, numbrinupu_kõrgus), nupuvärv_a, nupuvärv_b, "2", "2_mängijat"),
+                       nupp((575, 300, numbrinupu_laius, numbrinupu_kõrgus), nupuvärv_a, nupuvärv_b, "3", "3_mängijat"),
+                       nupp((575, 350, numbrinupu_laius, numbrinupu_kõrgus), nupuvärv_a, nupuvärv_b, "4", "4_mängijat"),
+                       nupp((575, 400, numbrinupu_laius, numbrinupu_kõrgus), nupuvärv_a, nupuvärv_b, "5", "5_mängijat"),
+                       nupp((575, 450, numbrinupu_laius, numbrinupu_kõrgus), nupuvärv_a, nupuvärv_b, "6", "6_mängijat")]
 
-tõmbakaartnupp = [nupp((810, 280, nupu_laius + 80, nupu_kõrgus), hall, helehall, "Tõmba kaart", "tõmbakaart")]
+tõmbakaartnupp = [nupp((810, 280, nupu_laius + 80, nupu_kõrgus), nupuvärv_a, nupuvärv_b, "Tõmba kaart", "tõmbakaart")]
 
-kaardinupud = [nupp((850, 250, nupu_laius, nupu_kõrgus), valge, helehall, "Tehtud!", "tehtud"),
-               nupp((850, 450, nupu_laius, nupu_kõrgus), valge, helehall, "Jõin!", "jõin")]
+kaardinupud = [nupp((830, 250, nupu_laius + 40, nupu_kõrgus), nupuvärv_a, nupuvärv_b, "Tehtud!", "tehtud"),
+               nupp((830, 450, nupu_laius + 40, nupu_kõrgus), nupuvärv_a, nupuvärv_b, "Rüübatud!", "jõin")]
+
+tagasinupp = [nupp((1100, 510, nupu_laius + 20, nupu_kõrgus), nupuvärv_a, nupuvärv_b, "Menüü", "menüü")]
 
 
 def pilt(pildinimi, x, y):
