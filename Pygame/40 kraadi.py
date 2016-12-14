@@ -25,11 +25,12 @@ tegevustelist2 = []
 tegevused = open("tegevused.txt")
 for a in tegevused:
     tegevustelist1 += [a.strip()]
-    
+
 pygame.init()
 
 font = pygame.font.SysFont("Broadway", 110)
 font2 = pygame.font.SysFont("DejaVu Sans", 40)
+fontnimed = pygame.font.SysFont("Broadway", 25)
 font4 = pygame.font.SysFont("DejaVu Sans", 30)
 fontbutton = pygame.font.SysFont("DejaVu Sans", 20)
 fonttegevus = pygame.font.SysFont("DejaVu Sans", 15)
@@ -44,12 +45,16 @@ fonttegevus = pygame.font.SysFont("DejaVu Sans", 15)
 def fondid(text, color, size):
     if size == "font":
         textSurface = font.render(text, True, color)
+    elif size == "fontnimed":
+        textSurface = fontnimed.render(text, True, color)
     elif size == "font2":
         textSurface = font2.render(text, True, color)
     elif size == "font4":
         textSurface = font4.render(text, True, color)
     elif size == "nupufont":
         textSurface = fontbutton.render(text, True, color)
+    elif size == "fonttegevus":
+        textSurface = fonttegevus.render(text, True, color)
     return textSurface, textSurface.get_rect()
 
 laius = 1200
