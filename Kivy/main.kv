@@ -4,6 +4,20 @@
 #:import C kivy.utils.get_color_from_hex
 #: import random random
 
+<Nupp@Button>:
+    size_hint: 0.5,0.2
+    background_normal: 'nupp1.png'
+    background_down:'nupp2.png'
+    markup: True
+    border: (2,2,2,2)
+<Nupp2@Button>:
+    size_hint: 0.2,0.17
+    background_normal: 'nupp1.png'
+    background_down:'nupp2.png'
+    markup: True
+    border: (2,2,2,2)
+
+
 ScreenManagement:
     transition: FadeTransition()
     id: scr
@@ -23,56 +37,38 @@ ScreenManagement:
 
             Label:
                 markup: True
-
-
                 text:
-                    ('[font=capture][size=70]'
+                    ('[font=capture][size=200]'
                     '40 kRAADI[/size][/font] ')
-
 
         BoxLayout:
             padding: (20,20,20,20)
             orientation: 'vertical'
 
-            Button:
+            Nupp:
                 pos_hint: {'x': 0.25, 'y':0.5}
-
-                size_hint: 0.5,0.1
-                background_normal: 'nupp1.png'
-                background_down:'nupp2.png'
                 on_release: app.root.current = "mang"
-                #allow_stretch: True
-                #keep_ratio: True
-                border: (2,2,2,2)
-                markup: True
                 text:
-                    ('[font=Modern Pictograms][size=23]'
-                    '>[/size][/font]   Mängi')
-
-            Button:
-                pos_hint: {'x': 0.25, 'y':0.3}
-                markup: True
-                text:
-                    ('[font=Modern Pictograms][size=23]'
-                    '?[/size][/font]       Abi')
-                size_hint: 0.5,0.1
-                on_release: app.root.current = 'abi'
-                background_normal: 'nupp1.png'
-                background_down:'nupp2.png'
-                border: (2,2,2,2)
-            Button:
-                markup:True
-                text:
-                    ('[font=Modern Pictograms][size=23]'
-                    'X[/size][/font]     Välju')
-                pos_hint: {'x': 0.25, 'y':0.1}
-                size_hint: 0.5,0.1
-                on_release: app.stop()
-                background_normal: 'nupp1.png'
-                background_down:'nupp2.png'
-                border: (2,2,2,2)
+                    ('[font=Modern Pictograms][size=60]'
+                    ' >[/size][/font]  [font=capture][size=30] [b] Mängi[/b][/size][/font]')
             Label:
-                size_hint_y: None
+                size_hint: 0.1,0.1
+
+            Nupp:
+                pos_hint: {'x': 0.25, 'y':0.3}
+                text:
+                    ('[font=Modern Pictograms][size=60]'
+                    '?[/size][/font]  [font=capture][size=30] [b] Abi [/b][/size][/font]')
+                on_release: app.root.current = 'abi'
+            Label:
+                size_hint: 0.1,0.1
+            Nupp:
+                text:
+                    ('[font=Modern Pictograms][size=60]'
+                    ' X[/size][/font]     [font=capture][size=30] [b]Välja[/b][/size][/font]')
+                pos_hint: {'x': 0.25, 'y':0.1}
+                on_release: app.stop()
+            Label:
                 size_hint: 0.2,0.3
 
 
@@ -81,53 +77,39 @@ ScreenManagement:
     BoxLayout:
         orientation: 'vertical'
         BoxLayout:
+            padding: (20,150,20,20)
             orientation: 'horizontal'
             Label:
-                text:root.uus_tegevus
-                text_size: self.size
-                font_size: 18
+                text:
+                    ('[font=santiago][size=150]'+root.uus_pilt+'[/size][/font][size=35][b]'+ root.uus_tegevus +'[/b][/size]')
                 font_name: 'Roboto'
                 halign:'center'
-                outline_color: (0,0,0)
                 valign: 'middle'
-                outline_width: 45
                 shorten: True
                 shorten_from: 'right'
-                split_str: ','
                 markup: True
         BoxLayout:
-            pos_hint:
             orientation: 'horizontal'
             padding: (20,20,20,20)
             Label:
-                size_hint: 0.1,0.5
-            Button:
-
+                size_hint: 0.1,0.2
+            Nupp2:
                 pos_hint: {'x':0.4,'y':0.5}
-                size_hint: 0.2,0.17
-                markup: True
                 text:
-                    ('[font=Modern Pictograms][size=34]'
-                    'o[/size][/font]    Joon')
+                    ('[font=Modern Pictograms][size=45]'
+                    'X[/size][/font]    [font=capture][size=30] [b]Joon[/b][/size][/font]')
                 on_release: root.popupvalja2()
-                on_press: root.Muuda_Tegevust()
-                background_normal: 'nupp1.png'
-                background_down:'nupp2.png'
-                border: (2,2,2,2)
+                on_press: root.muuda_tegevust()
+
             Label:
                 size_hint: 0.1,0.5
-            Button:
+            Nupp2:
                 pos_hint: {'x':0.4,'y':0.5}
-                size_hint: 0.2,0.17
-                markup: True
                 text:
-                    ('[font=Modern Pictograms][size=34]'
-                    '%[/size][/font]    Tegin')
+                    ('[font=Modern Pictograms][size=45]'
+                    '%[/size][/font] [font=capture][size=30] [b]Teen[/b][/size][/font]')
                 on_release: root.popupvalja1()
-                background_normal: 'nupp1.png'
-                background_down:'nupp2.png'
-                border: (2,2,2,2)
-                on_press: root.Muuda_Tegevust()
+                on_press: root.muuda_tegevust()
             Label:
                 size_hint: 0.1,0.5
 
@@ -141,8 +123,8 @@ ScreenManagement:
 
             Label:
                 size_hint: 0.7,1
-                pos_hint: {'x': 0.15,'y':0.5}
-                text: '[b] Teretulemast mängu 40 kraadi. Tegemist on rakendusega, \n mis aitab peo käima lükata. \n Varu piisavas koguses alkoholi ja naudi mängu! \n Alla 18-aastastele keelatud! [/b]'
+                pos_hint: {'x': 0.15,'y':0.3}
+                text: '[b] Teretulemast mängu 40 kraadi!\n Tegemist on rakendusega, \n mis aitab peo käima lükata. \n Varu piisavas koguses alkoholi ja naudi mängu! \n Alla 18-aastastele keelatud! [/b]'
                 font_name: 'Roboto'
                 valign: 'middle'
                 halign: 'center'
@@ -153,32 +135,22 @@ ScreenManagement:
             padding: (20,20,20,20)
             orientation: 'vertical'
 
-            Button:
+            Nupp:
                 pos_hint: {'x': 0.25, 'y':0.5}
-                size_hint_y: None
-                size_hint: 0.5,0.2
-                background_normal: 'nupp1.png'
-                background_down:'nupp2.png'
                 on_release: app.root.current = "esimenelk"
-                #allow_stretch: True
-                #keep_ratio: True
-                border: (2,2,2,2)
-                markup: True
                 text:
-                    ('[font=Modern Pictograms][size=23]'
-                    'R[/size][/font]   Tagasi')
+                    ('[font=Modern Pictograms][size=45]'
+                    'R[/size][/font]   [font=capture][size=30] [b]Tagasi[/b][/size][/font]')
             Label:
                 size_hint_y: None
                 size_hint: 0.2,1
 
 
-
-
-
 <Popup1>:
     name: 'pop1'
+    markup: True
     title: 'Õnnitlus'
-    size_hint: .8,0.8
+    size_hint: .8,.6
     auto_dismiss: False
     BoxLayout:
         orientation: 'vertical'
@@ -187,19 +159,19 @@ ScreenManagement:
             text:
                 ('[font=Modern Pictograms][size=90]'
                 'l[/size][/font]\n '+ root.onnitlus)
-        Button:
-            text: 'Edasi'
-            background_normal: 'nupp1.png'
-            background_down:'nupp2.png'
+        Nupp:
+            text:
+                ('[font=Modern Pictograms][size=45]'
+                '>[/size][/font] [font=capture][size=30] [b]Edasi[/b][/size][/font]')
             on_press: root.dismiss()
-            #on_release: root.muuda_onnitlust()
-            size_hint: 0.5,0.1
-            border: (2,2,2,2)
             pos_hint: {'x':0.25,'y':0.4}
+
+
 <Popup2>:
+    markup: True
     name: 'pop2'
     title: 'Kaebus'
-    size_hint: 0.8,.8
+    size_hint: .8,.6
     auto_dismiss: False
     BoxLayout:
         orientation: 'vertical'
@@ -209,16 +181,12 @@ ScreenManagement:
                 ('[font=Modern Pictograms][size=90]'
                 'L[/size][/font]\n  '+root.kaebus)
 
-
-        Button:
-            background_normal: 'nupp1.png'
-            background_down:'nupp2.png'
-            border: (2,2,2,2)
-            text: 'Edasi'
+        Nupp:
+            text:
+                ('[font=Modern Pictograms][size=45]'
+                '>[/size][/font] [font=capture][size=30] [b]Edasi[/b][/size][/font]')
             on_press: root.dismiss()
-            size_hint: 0.5,0.1
-            border: (2,2,2,2)
-            pos_hint: {'x':0.25,'y':0.4}
+            pos_hint: {'x':0.25,'y':0.6}
 
 
 

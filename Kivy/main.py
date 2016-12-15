@@ -1,58 +1,40 @@
-# File name: main.py
 import kivy
 kivy.require("1.8.0")
 from kivy.app import App
 from kivy.properties import StringProperty
 from kivy.uix.popup import Popup
-from kivy.uix.screenmanager import ScreenManager, Screen, WipeTransition
+from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.lang import Builder
-from kivy.properties import NumericProperty
-from kivy.uix.widget import Widget
-from kivy.uix.image import Image
 from kivy.core.window import Window
-from kivy.uix.label import Label
 from kivy.utils import get_color_from_hex
-from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.floatlayout import FloatLayout
-from kivy.uix.behaviors import ButtonBehavior
-from kivy.animation import Animation
-from kivy.animation import AnimationTransition
-from kivy.uix.textinput import TextInput
-from kivy.graphics.vertex_instructions import (Rectangle,
-                                               Ellipse,
-                                               Line)
-from kivy.graphics.context_instructions import Color
-from kivy.graphics import Canvas
-from kivy.properties import ObjectProperty
 from random import randint
-from kivy.uix.bubble import Bubble,BubbleButton
 from kivy.core.text import LabelBase
-
 Window.clearcolor = get_color_from_hex('#000000')
-
-
 
 
 class EsimeneLehekulg(Screen):
     pass
 
+
 class Mang(Screen):
     uus_tegevus = StringProperty()
     popup1 = Popup()
     popup2 = Popup()
-    def __init__(self,**kwargs):
-        super(Mang,self).__init__(**kwargs)
+    uus_pilt = StringProperty()
+
+    def __init__(self, **kwargs):
+        super(Mang, self).__init__(**kwargs)
         f = open('tegevused.txt', 'r')
         k = list(f)
-        self.uus_tegevus = str('[b]'+k[randint(0,len(k)-1)]+'[/b]')
+        listike = list(open('tahed.txt'))
+        self.uus_pilt = str(listike[randint(0, len(listike)-1)])
+        self.uus_tegevus = str('[b]' + k[randint(0, len(k)-1)] + '[/b]')
 
-
-
-
-    def Muuda_Tegevust(self):
-        f = open('tegevused.txt', 'r')
-        k = list(f)
-        self.uus_tegevus = str('[b]'+k[randint(0,len(k)-1)]+'[/b]')
+    def muuda_tegevust(self, *args):
+        k = list(open('tegevused.txt'))
+        listike = list(open('tahed.txt'))
+        self.uus_tegevus = str('[b]' + k[randint(0, len(k)-1)] + '[/b]')
+        self.uus_pilt = str(listike[randint(0, len(listike)-1)])
 
     def popupvalja1(self):
         popup1 = Popup1()
@@ -63,40 +45,28 @@ class Mang(Screen):
         popup2.open()
 
 
-
-
 class Popup1(Popup):
     onnitlus = StringProperty()
-    def __init__(self,**kwargs):
-        super(Popup1,self).__init__(**kwargs)
+
+    def __init__(self, **kwargs):
+        super(Popup1, self).__init__(**kwargs)
         fail = open('onnitlused.txt')
         onnitlused = list(fail)
-        self.onnitlus = str(onnitlused[randint(0, len(onnitlused) - 1)])
-
-
-
+        self.onnitlus = str('[b]' + onnitlused[randint(0, len(onnitlused) - 1)] + ' \n  Anna telefon edasi![/b]')
 
 
 class Popup2(Popup):
     kaebus = StringProperty()
-    def __init__(self,**kwargs):
-        super(Popup2,self).__init__(**kwargs)
-        fail = open ('kaebused.txt')
+
+    def __init__(self, **kwargs):
+        super(Popup2, self).__init__(**kwargs)
+        fail = open('kaebused.txt')
         kaebused = list(fail)
-        self.kaebus = str(kaebused[randint(0,len(kaebused)-1)])
-
-
-
+        self.kaebus = str('[b]'+kaebused[randint(0, len(kaebused)-1)]+'\n  Anna telefon edasi![/b]')
 
 
 class Abi(Screen):
-    bub = Bubble()
-    def __init__(self,**kwargs):
-        super(Abi,self).__init__(**kwargs)
-
-    def naita_bub(self):
-        bub = Bubble()
-        self.bub = bub
+    pass
 
 
 class ScreenManagement(ScreenManager):
@@ -104,6 +74,7 @@ class ScreenManagement(ScreenManager):
 
 
 presentation = Builder.load_file("main.kv")
+
 
 class NelikummendKraadiApp(App):
     def build(self):
@@ -118,4 +89,8 @@ if __name__ == "__main__":
                        fn_regular='modernpics.ttf')
     LabelBase.register(name='capture',
                        fn_regular='Capture_it.ttf')
+    LabelBase.register(name='evil',
+                       fn_regular='EVILZ.ttf')
+    LabelBase.register(name='santiago',
+                       fn_regular='SANTIAGO_ICONO.ttf')
     NelikummendKraadiApp().run()
