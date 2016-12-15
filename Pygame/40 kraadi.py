@@ -352,6 +352,21 @@ while not gameExit:
         elif kord == 6:
             tekst((mängija6.nimi + ", sinu kord!"), font4, must, 750, 30)
 
+    elif tase == "kaart":
+        # pygame.draw.rect(Screen, valge, (600, 0, 600, 600))  # nüüd näitab kogu aeg, kelle kord on
+        # pygame.draw.rect(Screen, must, (695, 95, 410, 410))  # paneb musta raami kaardile ümber
+        pygame.draw.rect(Screen, kaardivärv, (700, 100, 400, 400))
+        # asi = pygame.image.load("C:\\Users\\Kreete Kakk\\PycharmProjects\\untitled1\\Progr kursus\\Projekt\\pudel.png")
+        # pilt(asi, 1050, 400)
+        # pilt(asi, 710, 400)  # teine pudelipilt teise kaardinurka
+        draw_buttons(kaardinupud)
+        tekst(pesukaru, fonttegevus, must, 720, 150)
+        """if len(pesukaru) <= 35:
+            tekst(pesukaru, fontbutton, must, 745, 150)
+        elif len(pesukaru) > 25:
+            tekst(pesukaru, fonttegevus, must, 720, 150)"""
+        tekst("Kui ülesannet ei täida, rüüpa!", fontbutton, must, 745, 350)
+
     if näita_punkte == True:
         if mängijatearv == 2:
             tekst((mängija1.nimi + ":"), font4, must, 100, 135)
