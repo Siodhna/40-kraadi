@@ -243,77 +243,77 @@ while not gameExit:
     if tase == "arvuta_punktid":
         if result == "tehtud":
             if kord == 1:
-                mängija1.lisa_punkte(randint(3, 7))
+                mängija1.lisa_punkte(randint(4, 6))
                 kord = 2
                 tase = "tõmba_kaart"
             elif kord == 2:
-                mängija2.lisa_punkte(randint(3, 7))
+                mängija2.lisa_punkte(randint(4, 6))
                 if mängijatearv == 2:
                     kord = 1
                 else:
                     kord = 3
                 tase = "tõmba_kaart"
             elif kord == 3:
-                mängija3.lisa_punkte(randint(3, 7))
+                mängija3.lisa_punkte(randint(4, 6))
                 if mängijatearv == 3:
                     kord = 1
                 else:
                     kord = 4
                 tase = "tõmba_kaart"
             elif kord == 4:
-                mängija4.lisa_punkte(randint(3, 7))
+                mängija4.lisa_punkte(randint(4, 6))
                 if mängijatearv == 4:
                     kord = 1
                 else:
                     kord = 5
                 tase = "tõmba_kaart"
             elif kord == 5:
-                mängija5.lisa_punkte(randint(3, 7))
+                mängija5.lisa_punkte(randint(4, 6))
                 if mängijatearv == 5:
                     kord = 1
                 else:
                     kord = 6
                 tase = "tõmba_kaart"
             elif kord == 6:
-                mängija6.lisa_punkte(randint(3, 7))
+                mängija6.lisa_punkte(randint(4, 6))
                 kord = 1
                 tase = "tõmba_kaart"
 
         elif result == "jõin":
             if kord == 1:
-                mängija1.lisa_punkte(randint(2, 5))
+                mängija1.lisa_punkte(randint(2, 4))
                 kord = 2
                 tase = "tõmba_kaart"
             elif kord == 2:
-                mängija2.lisa_punkte(randint(2, 5))
+                mängija2.lisa_punkte(randint(2, 4))
                 if mängijatearv == 2:
                     kord = 1
                 else:
                     kord = 3
                 tase = "tõmba_kaart"
             elif kord == 3:
-                mängija3.lisa_punkte(randint(2, 5))
+                mängija3.lisa_punkte(randint(2, 4))
                 if mängijatearv == 3:
                     kord = 1
                 else:
                     kord = 4
                 tase = "tõmba_kaart"
             elif kord == 4:
-                mängija4.lisa_punkte(randint(2, 5))
+                mängija4.lisa_punkte(randint(2, 4))
                 if mängijatearv == 4:
                     kord = 1
                 else:
                     kord = 5
                 tase = "tõmba_kaart"
             elif kord == 5:
-                mängija5.lisa_punkte(randint(2, 5))
+                mängija5.lisa_punkte(randint(2, 4))
                 if mängijatearv == 5:
                     kord = 1
                 else:
                     kord = 6
                 tase = "tõmba_kaart"
             elif kord == 6:
-                mängija6.lisa_punkte(randint(2, 5))
+                mängija6.lisa_punkte(randint(2, 4))
                 kord = 1
                 tase = "tõmba_kaart"
 
