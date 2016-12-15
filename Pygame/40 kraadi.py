@@ -369,17 +369,17 @@ while not gameExit:
 
     if näita_punkte == True:
         if mängijatearv == 2:
-            tekst((mängija1.nimi + ":"), font4, must, 100, 135)
-            tekst((mängija2.nimi + ":"), font4, must, 100, 435)
+            tekst((mängija1.nimi + ":"), fontnimed, must, 100, 135)
+            tekst((mängija2.nimi + ":"), fontnimed, must, 100, 435)
             pygame.draw.circle(Screen, mängija1.värv, (300, 150), 50, 0)
             pygame.draw.circle(Screen, mängija2.värv, (300, 450), 50, 0)
             tekst(str(mängija1.punktid), font4, must, 285, 135)
             tekst(str(mängija2.punktid), font4, must, 285, 435)
 
         elif mängijatearv == 3:
-            tekst((mängija1.nimi + ":"), font4, must, 100, 85)
-            tekst((mängija2.nimi + ":"), font4, must, 100, 285)
-            tekst((mängija3.nimi + ":"), font4, must, 100, 485)
+            tekst((mängija1.nimi + ":"), fontnimed, must, 100, 85)
+            tekst((mängija2.nimi + ":"), fontnimed, must, 100, 285)
+            tekst((mängija3.nimi + ":"), fontnimed, must, 100, 485)
             pygame.draw.circle(Screen, mängija1.värv, (300, 100), 50, 0)
             pygame.draw.circle(Screen, mängija2.värv, (300, 300), 50, 0)
             pygame.draw.circle(Screen, mängija3.värv, (300, 500), 50, 0)
@@ -388,10 +388,10 @@ while not gameExit:
             tekst(str(mängija3.punktid), font4, must, 285, 485)
 
         elif mängijatearv == 4:
-            tekst((mängija1.nimi + ":"), font4, must, 80, 135)
-            tekst((mängija2.nimi + ":"), font4, must, 80, 435)
-            tekst((mängija3.nimi + ":"), font4, must, 330, 135)
-            tekst((mängija4.nimi + ":"), font4, must, 350, 435)
+            tekst((mängija1.nimi + ":"), fontnimed, must, 80, 135)
+            tekst((mängija2.nimi + ":"), fontnimed, must, 80, 435)
+            tekst((mängija3.nimi + ":"), fontnimed, must, 330, 135)
+            tekst((mängija4.nimi + ":"), fontnimed, must, 350, 435)
             pygame.draw.circle(Screen, mängija1.värv, (250, 150), 50, 0)
             pygame.draw.circle(Screen, mängija2.värv, (250, 450), 50, 0)
             pygame.draw.circle(Screen, mängija3.värv, (500, 150), 50, 0)
@@ -402,11 +402,11 @@ while not gameExit:
             tekst(str(mängija4.punktid), font4, must, 485, 435)
 
         elif mängijatearv == 5:
-            tekst((mängija1.nimi + ":"), font4, must, 80, 135)
-            tekst((mängija2.nimi + ":"), font4, must, 80, 435)
-            tekst((mängija3.nimi + ":"), font4, must, 330, 135)
-            tekst((mängija4.nimi + ":"), font4, must, 260, 285)
-            tekst((mängija5.nimi + ":"), font4, must, 350, 435)
+            tekst((mängija1.nimi + ":"), fontnimed, must, 80, 135)
+            tekst((mängija2.nimi + ":"), fontnimed, must, 80, 435)
+            tekst((mängija3.nimi + ":"), fontnimed, must, 330, 135)
+            tekst((mängija4.nimi + ":"), fontnimed, must, 260, 285)
+            tekst((mängija5.nimi + ":"), fontnimed, must, 350, 435)
             pygame.draw.circle(Screen, mängija1.värv, (250, 150), 50, 0)
             pygame.draw.circle(Screen, mängija2.värv, (250, 450), 50, 0)
             pygame.draw.circle(Screen, mängija3.värv, (500, 150), 50, 0)
@@ -419,12 +419,12 @@ while not gameExit:
             tekst(str(mängija5.punktid), font4, must, 485, 435)
 
         elif mängijatearv == 6:
-            tekst((mängija1.nimi + ":"), font4, must, 80, 135)
-            tekst((mängija2.nimi + ":"), font4, must, 80, 285)
-            tekst((mängija3.nimi + ":"), font4, must, 80, 435)
-            tekst((mängija4.nimi + ":"), font4, must, 370, 135)
-            tekst((mängija5.nimi + ":"), font4, must, 350, 285)
-            tekst((mängija6.nimi + ":"), font4, must, 350, 435)
+            tekst((mängija1.nimi + ":"), fontnimed, must, 80, 135)
+            tekst((mängija2.nimi + ":"), fontnimed, must, 80, 285)
+            tekst((mängija3.nimi + ":"), fontnimed, must, 80, 435)
+            tekst((mängija4.nimi + ":"), fontnimed, must, 370, 135)
+            tekst((mängija5.nimi + ":"), fontnimed, must, 350, 285)
+            tekst((mängija6.nimi + ":"), fontnimed, must, 350, 435)
             pygame.draw.circle(Screen, mängija1.värv, (250, 150), 50, 0)
             pygame.draw.circle(Screen, mängija2.värv, (250, 300), 50, 0)
             pygame.draw.circle(Screen, mängija3.värv, (250, 450), 50, 0)
@@ -438,11 +438,11 @@ while not gameExit:
             tekst(str(mängija5.punktid), font4, must, 485, 285)
             tekst(str(mängija6.punktid), font4, must, 485, 435)
 
-    if mängija1.punktid >= 10:
+    if mängija1.punktid >= 50:
         võitja = mängija1.nimi
         tase = "mängläbi"
 
-    if mängija2.punktid >= 10:
+    if mängija2.punktid >= 50:
         võitja = mängija2.nimi
         tase = "mängläbi"
 
