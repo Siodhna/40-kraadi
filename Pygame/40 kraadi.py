@@ -317,6 +317,41 @@ while not gameExit:
                 kord = 1
                 tase = "tõmba_kaart"
 
+    # KEHA
+
+    if tase == "startmenüü":
+        Screen.fill(taustavärv)
+        draw_buttons(start_nupud)
+        tekst("40 kraadi", font, must, 280, 100)
+
+    elif tase == "abi":
+        Screen.fill(taustavärv)
+        draw_buttons(abi_nupud)
+        tekst("Juhised mänguks:", font, must, 120, 100)
+        tekst("Joo end täis.", font2, must, 300, 250)
+        tekst("Ürita ellu jääda.", font2, must, 300, 300)
+
+    elif tase == "mängijate_arv":
+        Screen.fill(taustavärv)
+        tekst("Vali mängijate arv", font2, must, 410, 100)
+        draw_buttons(mängijate_arv_nupud)
+
+    elif tase == "tõmba_kaart":
+        Screen.fill(taustavärv)
+        draw_buttons(tõmbakaartnupp)
+        if kord == 1:
+            tekst((mängija1.nimi + ", sinu kord!"), font4, must, 750, 30)
+        elif kord == 2:
+            tekst((mängija2.nimi + ", sinu kord!"), font4, must, 750, 30)
+        elif kord == 3:
+            tekst((mängija3.nimi + ", sinu kord!"), font4, must, 750, 30)
+        elif kord == 4:
+            tekst((mängija4.nimi + ", sinu kord!"), font4, must, 750, 30)
+        elif kord == 5:
+            tekst((mängija5.nimi + ", sinu kord!"), font4, must, 750, 30)
+        elif kord == 6:
+            tekst((mängija6.nimi + ", sinu kord!"), font4, must, 750, 30)
+
     if näita_punkte == True:
         if mängijatearv == 2:
             tekst((mängija1.nimi + ":"), font4, must, 100, 135)
