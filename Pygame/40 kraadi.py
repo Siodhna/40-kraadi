@@ -219,7 +219,6 @@ while not gameExit:
                     tase = "tõmba_kaart"
                     näita_punkte = True
 
-
             elif tase == "tõmba_kaart":
                 result = handle_buttons(tõmbakaartnupp, event)
                 if result == "tõmbakaart":
